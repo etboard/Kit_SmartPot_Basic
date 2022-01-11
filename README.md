@@ -1,6 +1,6 @@
-# 이티보드 스마트화분 코딩 키트 (기본) 콘텐츠
+# 이티보드 스마트화분 코딩 키트 (기본)
 
-* ET-Board Smart Pot Basic Contents
+* ET-Board Smart Pot Coding Kit (Basic)
 * 화분의 흙에 수분이 없을 경우 물을 공급한다.
 * 토양수분센서, 워터펌프, 모터드라이버, OLED
 </br></br>
