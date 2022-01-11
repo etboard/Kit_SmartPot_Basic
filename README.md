@@ -5,7 +5,22 @@
 * 토양수분센서, 워터펌프, 모터드라이버, OLED
 </br></br>
 
-  
+
+### 지원 언어
+
+* 아두이노(Arduino)
+* 엔트리(Entry)
+</br></br>
+
+
+### 지원 보드
+
+* 이티보드(ET-Board)
+* ESP32-DevKit
+* NodeMCU-32S
+</br></br>
+
+
 ### 문서 및 자료(Documentation & File)
 
 아래 자료는 [이티보드(ET-Board) 자료실](http://et.ketri.re.kr/board/)에서도 얻을 수 있습니다.
