@@ -1,7 +1,7 @@
 /**********************************************************************************
  * Author : (주)한국공학기술연구원
- * Program ID  : smart_pot_with_pump
- * Description : 스마트 화분 코딩(워터펌프 포함) 
+ * Program ID  : SmartPot_Basic
+ * Description : 스마트 화분 코딩(워터펌프 포함)
  *             : LIJ : 2021.09.02
  **********************************************************************************/
 
@@ -22,9 +22,9 @@ const int threshold = 1000;
 
 
 //================================================================
-void setup() 
+void setup()
 //================================================================
-{ 
+{
   Serial.begin(9600);
   pinMode(pin1, OUTPUT);
   pinMode(pin2, OUTPUT);
@@ -32,10 +32,10 @@ void setup()
 }
 
 //================================================================
-void loop() 
+void loop()
 //================================================================
-{  
-  display_oled();  
+{
+  display_oled();
   delay(1);
 }
 
@@ -59,17 +59,17 @@ void display_oled()
 
   if (moistureValue < threshold) { // 토양수분 센서값이 threshold 미만이면
     digitalWrite(pin1, HIGH); // 워터펌프 작동
-    digitalWrite(pin2, LOW);  // 
+    digitalWrite(pin2, LOW);  //
     } else {
     digitalWrite(pin1, LOW);  // 작동 멈춤
-    digitalWrite(pin2, LOW);  // 
+    digitalWrite(pin2, LOW);  //
     }
-    
-    
+
+
   // OLED 텍스트 표시
   char text[32] = "moist: ";
   char value[32];
-  String str = String(moistureValue, DEC);    
+  String str = String(moistureValue, DEC);
   str.toCharArray(value,6);
   strcat(text,value);
 
