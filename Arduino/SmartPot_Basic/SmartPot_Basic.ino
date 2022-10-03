@@ -6,11 +6,14 @@
   * Warning      : Arduino IDE에서 u8g2 라이브러리를 추가해서 컴파일 해야힘
   * Created Date : 2021.09.02
   * Modified     : 2022.01.12 : SCS : 소스 크린징
+  * Modified     : 2022.10.03 : SCS : support arduino uno with ET-Upboard
  ******************************************************************************************/
 
 //==========================================================================================
 // Include & definition
 //==========================================================================================
+#include "pins_arduino.h"           // support arduino uno with ET-Upboard
+
 // OLED 제어를 위한 라이브러리 불러오기
 #include "oled_u8g2.h"
 OLED_U8G2 oled;
