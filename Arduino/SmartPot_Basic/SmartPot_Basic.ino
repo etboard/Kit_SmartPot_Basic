@@ -22,8 +22,8 @@ OLED_U8G2 oled;
 
 const int moisture_pin = A3;                                             // 토양 수분 측정 센서
 
-const int motor_pin1 = D2;                                               // 모터 작동 핀 (Motor-L)                      
-const int motor_pin2 = D3;                                               // 모터 작동 핀 (Motor-L)
+const int pump_pin1 = D2;                                                // 워터 펌프 작동 핀 (pump-L)                      
+const int pump_pin2 = D3;                                                // 워터 펌프 작동 핀 (pump-L)
 
 const int moist_threshold = 30;                                          // 토양 수분 임계치 (%)
 
@@ -35,8 +35,8 @@ void setup()
     Serial.begin(115200);                                                // 시리얼통신 준비
     oled.setup();                                                        // OLED 셋업
   
-    pinMode(motor_pin1, OUTPUT);                                         // 모터 출력 모드 설정
-    pinMode(motor_pin2, OUTPUT);                                         // 모터 출력 모드 설정
+    pinMode(pump_pin1, OUTPUT);                                          // 워터 펌프 출력 모드 설정
+    pinMode(pump_pin2, OUTPUT);                                          // 워터 펌프 출력 모드 설정
 
     pinMode(SDA, INPUT);                                                 // OLED 입력 모드 설정
     pinMode(SCL, INPUT);                                                 // OLED 입력 모드 설정
@@ -61,13 +61,13 @@ void loop()
     // 토양수분이 값에 따라 워터 펌프의 작동 제어하기
     //---------------------------------------------------------------------------------------------------
     if (moisture_value < moist_threshold) {                              // 토양수분 센서값이 moist_threshold 미만이면
-        digitalWrite(motor_pin1, HIGH);                                  // 워터펌프 작동
-        digitalWrite(motor_pin2, LOW);
+        digitalWrite(pump_pin1, HIGH);                                   // 워터펌프 작동
+        digitalWrite(pump_pin2, LOW);
         strcpy(pump_state, "On");                                        // 워터 펌프 상태 On
     } 
     else {
-        digitalWrite(motor_pin1, LOW);                                   // 워터 펌프 작동 멈춤
-        digitalWrite(motor_pin2, LOW);
+        digitalWrite(pump_pin1, LOW);                                    // 워터 펌프 작동 멈춤
+        digitalWrite(pump_pin2, LOW);
         strcpy(pump_state, "Off");                                       // 워터 펌프 상태 Off
     }
   

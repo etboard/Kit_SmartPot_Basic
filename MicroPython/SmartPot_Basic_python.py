@@ -25,8 +25,8 @@ oled = oled_u8g2()
 
 moisture_pin = ADC(Pin(A3))                                              # 토양 수분 측정 센서
 
-motor_pin1 = Pin(D2)                                                     # 모터 작동 핀 (Motor-L)
-motor_pin2 = Pin(D3)                                                     # 모터 작동 핀 (Motor-L)
+pump_pin1 = Pin(D2)                                                      # 워터 펌프 작동 핀 (Motor-L)
+pump_pin2 = Pin(D3)                                                      # 모터 작동 핀 (Motor-L)
 
 moist_threshold = 30                                                     # 토양 수분 임계치(%)
 
@@ -39,8 +39,8 @@ text1 = [0] * 255
 def setup() :
     moisture_pin.atten(ADC.ATTN_11DB)                                    # 토양 수분 측정 센서 입력 모드 설정
     
-    motor_pin1.init(Pin.OUT)                                             # 모터 출력 모드 설정
-    motor_pin2.init(Pin.OUT)                                             # 모터 출력 모드 설정
+    pump_pin1.init(Pin.OUT)                                              # 모터 출력 모드 설정
+    pump_pin2.init(Pin.OUT)                                              # 모터 출력 모드 설정
     
     
 #=======================================================================================================
@@ -60,12 +60,12 @@ def loop() :
     # 토양수분이 값에 따라 워터 펌프의 작동 제어하기
     #---------------------------------------------------------------------------------------------------
     if(moisture_value < moist_threshold) :                               # 토양 수분 센서값이 moist_threshold 미만이면
-        motor_pin1.value(HIGH)                                           # 워터 펌프 작동
-        motor_pin2.value(LOW)
+        pump_pin1.value(HIGH)                                            # 워터 펌프 작동
+        pump_pin2.value(LOW)
         pump_state = "On"                                                # 워터 펌프 상태 On
     else :
-        motor_pin1.value(LOW)                                            # 워터 펌프 작동 멈춤
-        motor_pin2.value(LOW)
+        pump_pin1.value(LOW)                                             # 워터 펌프 작동 멈춤
+        pump_pin2.value(LOW)
         pump_state = "Off"                                               # 워터 펌프 상태 Off
    
     print("모터 상태 : ", pump_state)
